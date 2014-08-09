@@ -53,10 +53,10 @@ public class Evento {
 
 	public Evento(String titulo, String descricao, Date data, List<Tema> temas)
 			throws EventoInvalidoException {
-		setTitulo(titulo);
-		setDescricao(descricao);
-		setData(data);
-		setTemas(temas);
+		this.titulo = titulo;
+		this.descricao = descricao;
+		this.data = data;
+		this.temas = temas;		
 	}
 
 	public String getTitulo() {
