@@ -1,0 +1,122 @@
+@font-face {
+	font-family: 'Short Stack';
+	font-style: normal;
+	font-weight: 400;
+	src: local('Short Stack'), local('Arial'), url('../fonts/Arial.woff')
+		format('woff');
+}
+
+body,html {
+	height: 92%;
+	width: 100%;
+	font-family: Arial;
+	background-color: rgb(13, 42, 70) !important;
+	color: white !important;
+}
+
+.arrow-left {
+	background: url(img/arrows.png) no-repeat left top;
+	position: absolute;
+	left: 10px;
+	top: 50%;
+	margin-top: -15px;
+	width: 17px;
+	height: 30px;
+}
+
+.arrow-right {
+	background: url(img/arrows.png) no-repeat left bottom;
+	position: absolute;
+	right: 10px;
+	top: 50%;
+	margin-top: -15px;
+	width: 17px;
+	height: 30px;
+}
+
+.swiper-container {
+	height: 100%;
+	width: 100% !important;
+}
+
+.content-slide {
+	padding: 20px;
+	color: #fff;
+}
+
+.title {
+	font-size: 25px;
+	margin-bottom: 10px;
+}
+
+.pagination {
+	position: absolute;
+	left: 0;
+	text-align: center;
+	bottom: 5px;
+	width: 100%;
+	z-index: 11;
+}
+
+.swiper-pagination-switch {
+	display: inline-block;
+	width: 10px;
+	height: 10px;
+	border-radius: 10px;
+	background: #999;
+	box-shadow: 0px 1px 2px #555 inset;
+	margin: 0 3px;
+	cursor: pointer;
+}
+
+.swiper-active-switch {
+	background: #fff;
+}
+
+.tooltip {
+	top: 40px;
+}
+
+.div-btn-big-container {
+	margin-left: 12px;
+	padding: 10px 40px 40px 40px;
+	margin-bottom: 10px;
+	border-radius: 4px;
+	height: 263px !important;
+	margin-top: 0px;
+	width: 40.6% !important;
+}
+
+.div-btn-big-container button{
+	padding: 30px !important;
+	font-size: 30px;
+}
+
+
+
+@media screen and (min-width: 991px) and (max-width: 1200px) {
+	.div-btn-big-container button{
+		padding: 10px;
+		font-size: 25px;
+	}
+	
+	.div-btn-big-container {
+		margin-top: 13px;
+		width: 38% !important;
+	}
+}
+
+@media screen and (min-width: 728px) and (max-width: 991px) {
+	.div-btn-big-container button{
+		padding: 10px !important;
+		padding-top: 30px !important;
+		padding-bottom: 30px !important;
+		font-size: 20px !important;
+	}
+	
+	.div-btn-big-container {
+		margin-top: 26px;
+		width: 37% !important;
+	}
+}
+

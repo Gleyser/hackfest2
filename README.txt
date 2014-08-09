@@ -1,0 +1,1 @@
+Hackfest (ou hackathon) é um evento de programadores interessados em um tema ou tecnologia, que se reúnem e constroem algo no tema durante um dia. Esse Website desenvolvido utilizando o play framework é componente do Lab 3 da disciplina de Sistemas da Informação I do Curso de Ciência da Computação UFCG

@@ -1,0 +1,37 @@
+<div class="container" style="height: 40% !important;">
+	<div class="col-md-12"
+		style="padding: 20px 40px 40px 40px; height: 100%; margin-bottom: 10px; border-radius: 4px; opacity: .9">
+		<div class="row">
+			<h1 class="col-sm-11" style="font-size: 30px">
+				<b>Bem-vindo ao HackFest do curso de Ciência da Computação</b>
+			</h1>
+			<br>
+			<h2 class="col-sm-12" style="font-size: 20px; text-align: justify">Este
+				espaço destina-se a divulgação de eventos para você que é apaixonado
+				por tecnologia. Aqui você poderá acompanhar, participar e cadastrar
+				eventos na área de tecnologia da informação para que em grupo possam debater e construir algo
+				bastante interessante e criativo. Divirtam-se!</h2>
+		</div>
+	</div>
+</div>
+
+<div class="container">
+	<div class="col-sm-7" style="padding: 10px 40px 40px 40px;">
+		<div class="row">
+			<h1 class="col-sm-11" style="font-size: 30px; margin-top:0px;margin-bottom:20px">
+				<b>Temas</b>
+			</h1>
+		</div>
+		<div id="principal-temas" style="height:184px !important;max-height:184px;overflow:auto" class="list-group">
+		  @for(tema <- Tema.values()){
+		  	<a href="#" class="list-group-item" data-id="@tema.getTipo()">@tema</a>
+		  }
+		</div>
+	</div>
+	<div class="col-sm-3 div-btn-big-container">
+		<button class="btn btn-danger col-sm-12" style="margin-top:9px" data-toggle="modal" data-target="#loginModal" onclick="mySwiper.swipeTo(2);"><i class="fa fa-calendar"></i>&nbsp;&nbsp;Crie um evento</button>
+		<br><button class="btn btn-success col-sm-12" style="margin-top:20px" onclick="mySwiper.swipeTo(1);"><i class="fa fa-eye"></i>&nbsp;&nbsp;Veja todos eventos</button>
+	</div>
+</div>
+
+

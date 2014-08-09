@@ -1,0 +1,44 @@
+@main("CCFest") {
+
+<a class="arrow-left" href="#" style="z-index:11"></a> <a class="arrow-right" href="#" style="z-index:11"></a>
+<div class="swiper-container">
+	<div class="swiper-wrapper">
+		<div class="swiper-slide" style="background-color: rgb(13, 42, 70);">
+			@apresentacao()
+		</div>
+		<div class="swiper-slide" style="background-color: rgb(13, 42, 70);">
+			@visualizacao()
+		</div>
+		<div class="swiper-slide" style="background-color: rgb(13, 42, 70);">
+			@criacao()
+		</div>
+	</div>
+	<div class="pagination"></div>
+</div>
+
+<script>
+	var mySwiper;
+
+	$(document).on('ready', function() {
+
+		mySwiper = new Swiper('.swiper-container', {
+			pagination : '.pagination',
+			loop : false,
+			grabCursor : true,
+			paginationClickable : true
+		})
+		
+		$('.arrow-left').on('click', function(e) {
+			e.preventDefault()
+			mySwiper.swipePrev()
+		})
+		
+		$('.arrow-right').on('click', function(e) {
+			e.preventDefault()
+			mySwiper.swipeNext()
+		})
+		
+		$('.content-slide').css('height',$('body').height()+'px')
+	});
+</script>
+}

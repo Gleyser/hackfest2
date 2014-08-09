@@ -1,0 +1,26 @@
+<!-- Modal -->
+<div style="color: black" class="modal fade" id="modalParticipar"
+	tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+	aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"
+					aria-hidden="true">&times;</button>
+				<h4 class="modal-title" id="myModalLabel">Participar</h4>
+			</div>
+			<div class="modal-body">
+				<form method="POST" id="form-participar">
+					<input id="form-evento-id" type="hidden" />
+					<input type="text" class="form-control" name="nome" placeholder="Digite seu nome" maxlength="70"/>
+					<br>
+					<input type="email" class="form-control" name="email" placeholder="Digite seu email" maxlength="70"/>
+				</form>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+				<button type="submit" class="btn btn-primary" form="form-participar">Confirmar</button>
+			</div>
+		</div>
+	</div>
+</div>

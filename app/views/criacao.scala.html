@@ -1,0 +1,53 @@
+<div class="container" style="height: 40% !important;height: 100%;">
+	<div class="col-md-12"
+		style="padding: 20px 40px 40px 40px; height: 100%; margin-bottom: 10px; border-radius: 4px; opacity: .9">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="row">
+					<div class="col-md-4">
+						<h1 style="font-size: 30px; margin-top:0px;">
+							<b>Criar um evento</b>
+						</h1>
+					</div>
+				</div>
+				<div style="height:450px;background-color:white;color:black;padding:10px">		
+					@helper.form(action = routes.EventoController.novo, 'id -> "form-novo-evento") {
+						<div class="row">
+							<div class="col-md-4">
+								<h1 style="font-size: 30px; margin-top:0px;">
+									<b>Temas</b>
+								</h1>
+								<div id='criacao-temas' style="height:100% !important;padding-top:30px;max-height:390px;overflow-x:auto;overflow-y:scroll; " class="list-group">
+									 @for(tema <- Tema.values()){
+								  		<div class="row list-group-item">
+								  			<input name="temas[]" class="col-md-1" type="checkbox" href="#" value="@tema.name">
+								  			<span class="col-md-5">@tema</span>
+								  		</div>
+								  	}
+								</div>
+							</div>
+							<div class="col-md-8" style="height:350px">
+								<h1 style="font-size: 30px; margin-top:0px;">
+									<b>&nbsp;</b>
+								</h1>
+								<div style="height:90% !important;max-height:390px;">
+									<div class="row">
+							  			<input name="titulo" type="text" class="col-md-8 form-control" placeholder="Título do evento" style="width:57% !important;margin-left:20px !important" maxlength="40">
+							  			<input name="data" type="date" class="col-md-4 form-control" placeholder="Título do evento" style="width:30% !important;margin-left:20px !important" required>
+							  		</div>
+							  		<div class="row" style="margin-top:20px">
+							  			<textarea name="descricao" style="width:90% !important;margin-left:20px !important;resize: none;" placeholder="Descrição do evento" class="form-control" rows="11" maxlength="450"></textarea>
+							  		</div>
+							  		
+								</div>
+								<div class="row" style="margin-left:0px;">
+									<button type="submit" class="btn btn-success" style="width:100px; margin-left:5px">Criar</button>
+								</div>
+							</div>
+						</div>
+					}
+				</div> 
+			</div>
+		</div>
+	</div>
+</div>
