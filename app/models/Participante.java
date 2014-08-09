@@ -39,9 +39,9 @@ public class Participante {
 
 	public Participante(String nome, String email, Evento evento)
 			throws PessoaInvalidaException {
-		setNome(nome);
-		setEmail(email);
-		setEvento(evento);
+		this.nome = nome;
+		this.email = email;
+		this.evento = evento;
 	}
 
 	public String getNome() {
