@@ -14,9 +14,9 @@ import play.data.validation.Constraints.MaxLength;
 
 @Entity
 public class Participante {
-	private final int TAMANHO_MAXIMO_DOEMAIL = 70;
-	private final int TAMANHO_MAXIMO_DONOME = 70;
-	private final String EMAIL_PATTERN = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
+	private final int tamanhoMaximoDoEmail = 70;
+	private final int tamanhoMaximoDoNome = 70;
+	private final String controleDeCaracteresDoEmail = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
 			+ "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
 
 	@Id
@@ -24,12 +24,12 @@ public class Participante {
 	private long id;
 
 	@NotNull
-	@MaxLength(value = TAMANHO_MAXIMO_DONOME)
+	@MaxLength(value = tamanhoMaximoDoNome)
 	private String nome;
 
 	@Email
 	@NotNull
-	@MaxLength(value = TAMANHO_MAXIMO_DOEMAIL)
+	@MaxLength(value = tamanhoMaximoDoEmail)
 	private String email;
 
 	@ManyToOne
@@ -52,7 +52,7 @@ public class Participante {
 	public void setNome(String nome) throws PessoaInvalidaException {
 		if (nome == null)
 			throw new PessoaInvalidaException("Parametro nulo");
-		if (nome.length() > TAMANHO_MAXIMO_DONOME)
+		if (nome.length() > tamanhoMaximoDoNome)
 			throw new PessoaInvalidaException("Nome longo");
 		this.nome = nome;
 	}
@@ -64,9 +64,9 @@ public class Participante {
 	public void setEmail(String email) throws PessoaInvalidaException {
 		if (email == null)
 			throw new PessoaInvalidaException("Parametro nulo");
-		if (!email.matches(EMAIL_PATTERN))
+		if (!email.matches(controleDeCaracteresDoEmail))
 			throw new PessoaInvalidaException("Email inválido");
-		if (email.length() > TAMANHO_MAXIMO_DOEMAIL)
+		if (email.length() > tamanhoMaximoDoEmail)
 			throw new PessoaInvalidaException("Email longo");
 		this.email = email;
 	}
@@ -89,8 +89,8 @@ public class Participante {
 		this.id = id;
 	}
 
-	public String getEMAIL_PATTERN() {
-		return EMAIL_PATTERN;
+	public String getEmailPattern() {
+		return controleDeCaracteresDoEmail;
 	}
 
 	@Override

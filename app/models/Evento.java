@@ -23,20 +23,20 @@ import play.data.validation.Constraints.Required;
 @Entity
 public class Evento {
 	
-	private final int TAMANHO_MAXIMO_DADESCRICAO = 450;
-	private final int TAMANHO_MAXIMO_DOTITULO = 40;
+	private final int tamanhoMaximoDaDescricao = 450;
+	private final int tamanhoMaximoDoTitulo = 40;
 
 	@Id
 	@GeneratedValue
 	private long id;
 
 	@Required
-	@MaxLength(value = TAMANHO_MAXIMO_DOTITULO)
+	@MaxLength(value = tamanhoMaximoDoTitulo)
 	private String titulo;
 
 	@Required
-	@MaxLength(value = TAMANHO_MAXIMO_DADESCRICAO)
-	@Column(name = "CONTENT", length = TAMANHO_MAXIMO_DADESCRICAO)
+	@MaxLength(value = tamanhoMaximoDaDescricao)
+	@Column(name = "CONTENT", length = tamanhoMaximoDaDescricao)
 	private String descricao;
 
 	@Temporal(value = TemporalType.DATE)
@@ -90,7 +90,7 @@ public class Evento {
 	public void setTitulo(String titulo) throws EventoInvalidoException {
 		if (titulo == null)
 			throw new EventoInvalidoException("Parametro nulo");
-		if (titulo.length() > TAMANHO_MAXIMO_DOTITULO)
+		if (titulo.length() > tamanhoMaximoDoTitulo)
 			throw new EventoInvalidoException("Título longo");
 		this.titulo = titulo;
 	}
@@ -98,7 +98,7 @@ public class Evento {
 	public void setDescricao(String descricao) throws EventoInvalidoException {
 		if (descricao == null)
 			throw new EventoInvalidoException("Parametro nulo");
-		if (descricao.length() > TAMANHO_MAXIMO_DADESCRICAO)
+		if (descricao.length() > tamanhoMaximoDaDescricao)
 			throw new EventoInvalidoException("Descrição longa");
 		this.descricao = descricao;
 	}
