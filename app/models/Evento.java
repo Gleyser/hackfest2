@@ -47,7 +47,9 @@ public class Evento {
 	@Enumerated(value = EnumType.ORDINAL)
 	@NotNull
 	private List<Tema> temas = new ArrayList<Tema>();
-
+	
+	private final int TAMANHO_MAXIMO_DADESCRICAO = 450;
+	private final int TAMANHO_MAXIMO_DOTITULO = 40;
 	public Evento() {
 	}
 
@@ -86,7 +88,7 @@ public class Evento {
 	public void setTitulo(String titulo) throws EventoInvalidoException {
 		if (titulo == null)
 			throw new EventoInvalidoException("Parametro nulo");
-		if (titulo.length() > 40)
+		if (titulo.length() > TAMANHO_MAXIMO_DOTITULO)
 			throw new EventoInvalidoException("Título longo");
 		this.titulo = titulo;
 	}
@@ -94,7 +96,7 @@ public class Evento {
 	public void setDescricao(String descricao) throws EventoInvalidoException {
 		if (descricao == null)
 			throw new EventoInvalidoException("Parametro nulo");
-		if (descricao.length() > 450)
+		if (descricao.length() > TAMANHO_MAXIMO_DADESCRICAO)
 			throw new EventoInvalidoException("Descrição longa");
 		this.descricao = descricao;
 	}
