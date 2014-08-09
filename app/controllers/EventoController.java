@@ -44,7 +44,7 @@ public class EventoController extends Controller {
 		
 		try {
 			json = mapper.writeValueAsString(eventosRequeridos);
-		} catch (Exception _) {
+		} catch (Exception e) {
 			return badRequest();
 		}
 		
