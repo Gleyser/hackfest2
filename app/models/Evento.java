@@ -114,4 +114,69 @@ public class Evento {
 			throw new EventoInvalidoException("Nenhum tema");
 		this.temas = temas;
 	}
+
+	public List<Participante> getParticipantes() {
+		return participantes;
+	}
+
+	public void setParticipantes(List<Participante> participantes) {
+		this.participantes = participantes;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((data == null) ? 0 : data.hashCode());
+		result = prime * result
+				+ ((descricao == null) ? 0 : descricao.hashCode());
+		result = prime * result
+				+ ((participantes == null) ? 0 : participantes.hashCode());
+		result = prime * result + ((temas == null) ? 0 : temas.hashCode());
+		result = prime * result + ((titulo == null) ? 0 : titulo.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Evento other = (Evento) obj;
+		if (data == null) {
+			if (other.data != null)
+				return false;
+		} else if (!data.equals(other.data))
+			return false;
+		if (descricao == null) {
+			if (other.descricao != null)
+				return false;
+		} else if (!descricao.equals(other.descricao))
+			return false;
+		if (participantes == null) {
+			if (other.participantes != null)
+				return false;
+		} else if (!participantes.equals(other.participantes))
+			return false;
+		if (temas == null) {
+			if (other.temas != null)
+				return false;
+		} else if (!temas.equals(other.temas))
+			return false;
+		if (titulo == null) {
+			if (other.titulo != null)
+				return false;
+		} else if (!titulo.equals(other.titulo))
+			return false;
+		return true;
+	}
+	
+	
 }
