@@ -27,7 +27,6 @@ public class Application extends Controller {
 		if (!criouEventosFake){
 			List<Evento> eventos = criarEventosFakes();
 			criarParticipacoesFake(eventos);
-
 			criouEventosFake = true;
 		}
         return ok(index.render());
@@ -40,125 +39,72 @@ public class Application extends Controller {
 	private static List<Evento> criarEventosFakes() {
 		try {
 			List<Evento> eventos = new ArrayList<Evento>();
-			Evento evento;
-			Calendar calendar;
-	
+				
 			List<Tema> temas = new ArrayList<Tema>();
 			
 			temas.add(Tema.DESAFIOS);
 			temas.add(Tema.PROGRAMACAO);
-			int dia = 7;
-			calendar = Calendar.getInstance();
-			calendar.add(Calendar.DAY_OF_WEEK, dia);
-			
-			evento = new Evento("Python na mente e coração", "Neste evento iremos debater e propor soluções para novas releases.", calendar.getTime(), temas);
-			eventos.add(evento);
-			criarEvento(evento);
-			
+			auxiliar("Python na mente e coração", "Neste evento iremos debater e propor soluções para novas releases.", 7, temas, eventos);
+									
 			temas = new ArrayList<Tema>();
 			temas.add(Tema.ARDUINO);
 			temas.add(Tema.ELETRONICA);
-			dia = 3;
-			calendar = Calendar.getInstance();
-			calendar.add(Calendar.DAY_OF_WEEK, dia);
-
-			evento = new Evento("Luta de robôs", "Traga seu robô feito em arduino e traga para competir com outros.", calendar.getTime(), temas);
-			eventos.add(evento);
-			criarEvento(evento);
-	
+			auxiliar("Luta de robôs", "Traga seu robô feito em arduino e traga para competir com outros.", 3, temas, eventos);
+			
 			temas = new ArrayList<Tema>();
 			temas.add(Tema.DESAFIOS);
 			temas.add(Tema.PROGRAMACAO);
-			dia = 1;
-			calendar = Calendar.getInstance();
-			calendar.add(Calendar.MONTH, dia);
-
-			evento = new Evento("IV Olímpiadas de programação da UFCG", "Traga sua equipe e venha competir nessa maratona de programação.", calendar.getTime(), temas);
-			eventos.add(evento);
-			criarEvento(evento);
-	
+			auxiliar("IV Olímpiadas de programação da UFCG", "Traga sua equipe e venha competir nessa maratona de programação.", 1, temas, eventos);
+			
 			temas = new ArrayList<Tema>();
 			temas.add(Tema.DESAFIOS);
 			temas.add(Tema.PROGRAMACAO);
-			dia = 12;
-			calendar = Calendar.getInstance();
-			calendar.add(Calendar.DAY_OF_WEEK, dia);
-
-			evento = new Evento("II Encontro para programadores de Python", "O encontro contará com a participação de um de seus fundadores, inúmeras palestras e maratonas. Não percam!!", calendar.getTime(), temas);
-			eventos.add(evento);
-			criarEvento(evento);
+			auxiliar("II Encontro para programadores de Python", "O encontro contará com a participação de um de seus fundadores, inúmeras palestras e maratonas. Não percam!!", 12, temas, eventos);
+			
 	
 			temas = new ArrayList<Tema>();
 			temas.add(Tema.PROGRAMACAO);
 			temas.add(Tema.DESAFIOS);
-			dia = 2;
-			int mes = 3;
-			calendar = Calendar.getInstance();
-			calendar.add(Calendar.MONTH, dia);
-			calendar.add(Calendar.DAY_OF_WEEK, mes);
-
-			evento = new Evento("III Semana da Computação Verde", "Exiba sua proposta para uma computação mais verde e concorra a diversos prêmios", calendar.getTime(), temas);
-			eventos.add(evento);
-			criarEvento(evento);
-	
+			auxiliar("III Semana da Computação Verde", "Exiba sua proposta para uma computação mais verde e concorra a diversos prêmios", 3, temas, eventos);
+			
 			temas = new ArrayList<Tema>();
 			temas.add(Tema.PROGRAMACAO);
 			temas.add(Tema.WEB);
-			dia = 17;
-			calendar = Calendar.getInstance();
-			calendar.add(Calendar.DAY_OF_WEEK, dia);
-
-			evento = new Evento("Web em foco", "Este evento contará com a participação de um dos fundadores da Web, e juntos iremos compartilhar diversas dicas e boas práticas nessa vasta área.", calendar.getTime(), temas);
-			eventos.add(evento);
-			criarEvento(evento);
-	
+			auxiliar("Web em foco", "Este evento contará com a participação de um dos fundadores da Web, e juntos iremos compartilhar diversas dicas e boas práticas nessa vasta área.",17, temas, eventos);
+			
 			temas = new ArrayList<Tema>();
 			temas.add(Tema.ELETRONICA);
 			temas.add(Tema.ARDUINO);
-			dia = 5;
-			calendar = Calendar.getInstance();
-			calendar.add(Calendar.DAY_OF_WEEK, dia);
-
-			evento = new Evento("Minicurso Arduino", "Evento destinado a alunos de LOAC, caso sobre vagas iremos disponibilizar em breve", calendar.getTime(), temas);
-			eventos.add(evento);
-			criarEvento(evento);
-	
+			auxiliar("Minicurso Arduino", "Evento destinado a alunos de LOAC, caso sobre vagas iremos disponibilizar em breve", 5, temas, eventos);
+				
 			temas = new ArrayList<Tema>();
 			temas.add(Tema.ELETRONICA);
 			temas.add(Tema.ARDUINO);
-			dia = 21;
-			calendar = Calendar.getInstance();
-			calendar.add(Calendar.DAY_OF_WEEK, dia);
-
-			evento = new Evento("Curto circuito", "Evento sobre circuitos eletrônicos, venha dar curto em seus circuitos também!!", calendar.getTime(), temas);
-			eventos.add(evento);
-			criarEvento(evento);
-	
+			auxiliar("Curto circuito", "Evento sobre circuitos eletrônicos, venha dar curto em seus circuitos também!!", 21, temas, eventos);
+				
 			temas = new ArrayList<Tema>();
 			temas.add(Tema.DESAFIOS);
-			dia = 15;
-			calendar = Calendar.getInstance();
-			calendar.add(Calendar.DAY_OF_WEEK, dia);
-
-			evento = new Evento("VI Encontro de Docentes de CC", "Evento para debatermos propostas e soluções para os problemas enfrentados pelos alunos de CC.", calendar.getTime(), temas);
-			eventos.add(evento);
-			criarEvento(evento);
-
+			auxiliar("VI Encontro de Docentes de CC", "Evento para debatermos propostas e soluções para os problemas enfrentados pelos alunos de CC.", 15, temas, eventos);
+			
 			temas = new ArrayList<Tema>();
 			temas.add(Tema.PROGRAMACAO);
 			temas.add(Tema.DESAFIOS);
-			dia = 8;
-			calendar = Calendar.getInstance();
-			calendar.add(Calendar.DAY_OF_WEEK, dia);
-
-			evento = new Evento("Café com Java", "Curso destinado apenas a alunos cursando a disciplina LP2.", calendar.getTime(), temas);
-			eventos.add(evento);
-			criarEvento(evento);
-			
+			auxiliar("Café com Java", "Curso destinado apenas a alunos cursando a disciplina LP2.", 8, temas, eventos);
+						
 			return eventos;
 		} catch (EventoInvalidoException e) {
 			return null;
 		}
+	}
+	
+	private static void auxiliar(String tema, String descricao, int dia, List<Tema> temas, List<Evento> eventos) throws EventoInvalidoException{
+		Calendar calendar;
+		calendar = Calendar.getInstance();
+		calendar.add(Calendar.DAY_OF_WEEK, dia);
+		Evento evento = new Evento(tema, descricao, calendar.getTime(), temas);
+		eventos.add(evento);
+		criarEvento(evento);
+		
 	}
 	
 	private static void criarParticipacoesFake(List<Evento> eventos) {

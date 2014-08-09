@@ -22,18 +22,21 @@ import play.data.validation.Constraints.Required;
 
 @Entity
 public class Evento {
+	
+	private final int TAMANHO_MAXIMO_DADESCRICAO = 450;
+	private final int TAMANHO_MAXIMO_DOTITULO = 40;
 
 	@Id
 	@GeneratedValue
 	private long id;
 
 	@Required
-	@MaxLength(value = 40)
+	@MaxLength(value = TAMANHO_MAXIMO_DOTITULO)
 	private String titulo;
 
 	@Required
-	@MaxLength(value = 450)
-	@Column(name = "CONTENT", length = 450)
+	@MaxLength(value = TAMANHO_MAXIMO_DADESCRICAO)
+	@Column(name = "CONTENT", length = TAMANHO_MAXIMO_DADESCRICAO)
 	private String descricao;
 
 	@Temporal(value = TemporalType.DATE)
@@ -48,8 +51,7 @@ public class Evento {
 	@NotNull
 	private List<Tema> temas = new ArrayList<Tema>();
 	
-	private final int TAMANHO_MAXIMO_DADESCRICAO = 450;
-	private final int TAMANHO_MAXIMO_DOTITULO = 40;
+	
 	public Evento() {
 	}
 
@@ -147,35 +149,12 @@ public class Evento {
 	public boolean equals(Object obj) {
 		if (this == obj)
 			return true;
-		if (obj == null)
-			return false;
+		
 		if (getClass() != obj.getClass())
 			return false;
 		Evento other = (Evento) obj;
-		if (data == null) {
-			if (other.data != null)
-				return false;
-		} else if (!data.equals(other.data))
-			return false;
-		if (descricao == null) {
-			if (other.descricao != null)
-				return false;
-		} else if (!descricao.equals(other.descricao))
-			return false;
-		if (participantes == null) {
-			if (other.participantes != null)
-				return false;
-		} else if (!participantes.equals(other.participantes))
-			return false;
-		if (temas == null) {
-			if (other.temas != null)
-				return false;
-		} else if (!temas.equals(other.temas))
-			return false;
-		if (titulo == null) {
-			if (other.titulo != null)
-				return false;
-		} else if (!titulo.equals(other.titulo))
+		
+		if (!titulo.equals(other.titulo))
 			return false;
 		return true;
 	}

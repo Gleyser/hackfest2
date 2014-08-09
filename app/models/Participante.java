@@ -24,12 +24,12 @@ public class Participante {
 	private long id;
 
 	@NotNull
-	@MaxLength(value = 70)
+	@MaxLength(value = TAMANHO_MAXIMO_DONOME)
 	private String nome;
 
 	@Email
 	@NotNull
-	@MaxLength(value = 70)
+	@MaxLength(value = TAMANHO_MAXIMO_DOEMAIL)
 	private String email;
 
 	@ManyToOne
@@ -112,20 +112,8 @@ public class Participante {
 		if (getClass() != obj.getClass())
 			return false;
 		Participante other = (Participante) obj;
-		if (email == null) {
-			if (other.email != null)
-				return false;
-		} else if (!email.equals(other.email))
-			return false;
-		if (evento == null) {
-			if (other.evento != null)
-				return false;
-		} else if (!evento.equals(other.evento))
-			return false;
-		if (nome == null) {
-			if (other.nome != null)
-				return false;
-		} else if (!nome.equals(other.nome))
+	
+		if (!nome.equals(other.nome))
 			return false;
 		return true;
 	}
