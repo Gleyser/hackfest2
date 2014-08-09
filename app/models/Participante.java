@@ -50,10 +50,14 @@ public class Participante {
 	}
 
 	public void setNome(String nome) throws PessoaInvalidaException {
-		if (nome == null)
+		if (nome == null){
 			throw new PessoaInvalidaException("Parametro nulo");
-		if (nome.length() > tamanhoMaximoDoNome)
+		}
+			
+		if (nome.length() > tamanhoMaximoDoNome){
 			throw new PessoaInvalidaException("Nome longo");
+		}
+			
 		this.nome = nome;
 	}
 
@@ -62,12 +66,18 @@ public class Participante {
 	}
 
 	public void setEmail(String email) throws PessoaInvalidaException {
-		if (email == null)
+		if (email == null){
 			throw new PessoaInvalidaException("Parametro nulo");
-		if (!email.matches(controleDeCaracteresDoEmail))
+		}
+			
+		if (!email.matches(controleDeCaracteresDoEmail)){
 			throw new PessoaInvalidaException("Email inválido");
-		if (email.length() > tamanhoMaximoDoEmail)
+		}
+			
+		if (email.length() > tamanhoMaximoDoEmail){
 			throw new PessoaInvalidaException("Email longo");
+		}
+			
 		this.email = email;
 	}
 
@@ -76,8 +86,10 @@ public class Participante {
 	}
 
 	public void setEvento(Evento evento) throws PessoaInvalidaException {
-		if (evento == null)
+		if (evento == null){
 			throw new PessoaInvalidaException("Parametro nulo");
+		}
+			
 		this.evento = evento;
 	}
 
@@ -105,16 +117,24 @@ public class Participante {
 
 	@Override
 	public boolean equals(Object obj) {
-		if (this == obj)
+		if (this == obj){
 			return true;
-		if (obj == null)
+		}
+			
+		if (obj == null){
 			return false;
-		if (getClass() != obj.getClass())
+		}
+			
+		if (getClass() != obj.getClass()){
 			return false;
+		}
+			
 		Participante other = (Participante) obj;
 	
-		if (!nome.equals(other.nome))
+		if (!nome.equals(other.nome)){
 			return false;
+		}
+			
 		return true;
 	}
 	

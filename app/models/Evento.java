@@ -88,34 +88,50 @@ public class Evento {
 	}
 
 	public void setTitulo(String titulo) throws EventoInvalidoException {
-		if (titulo == null)
+		if (titulo == null){
 			throw new EventoInvalidoException("Parametro nulo");
-		if (titulo.length() > tamanhoMaximoDoTitulo)
+		}
+			
+		if (titulo.length() > tamanhoMaximoDoTitulo){
 			throw new EventoInvalidoException("Título longo");
+		}
+			
 		this.titulo = titulo;
 	}
 
 	public void setDescricao(String descricao) throws EventoInvalidoException {
-		if (descricao == null)
+		if (descricao == null){
 			throw new EventoInvalidoException("Parametro nulo");
-		if (descricao.length() > tamanhoMaximoDaDescricao)
+		}
+			
+		if (descricao.length() > tamanhoMaximoDaDescricao){
 			throw new EventoInvalidoException("Descrição longa");
+		}
+			
 		this.descricao = descricao;
 	}
 
 	public void setData(Date data) throws EventoInvalidoException {
-		if (data == null)
+		if (data == null){
 			throw new EventoInvalidoException("Parametro nulo");
-		if (data.compareTo(new Date()) < 0)
+		}
+			
+		if (data.compareTo(new Date()) < 0){
 			throw new EventoInvalidoException("Data inválida");
+		}
+			
 		this.data = data;
 	}
 
 	public void setTemas(List<Tema> temas) throws EventoInvalidoException {
-		if (temas == null)
+		if (temas == null){
 			throw new EventoInvalidoException("Parametro nulo");
-		if (temas.size() == 0)
+		}
+			
+		if (temas.size() == 0){
 			throw new EventoInvalidoException("Nenhum tema");
+		}
+			
 		this.temas = temas;
 	}
 
@@ -147,15 +163,21 @@ public class Evento {
 
 	@Override
 	public boolean equals(Object obj) {
-		if (this == obj)
+		if (this == obj){
 			return true;
+		}
+			
 		
-		if (getClass() != obj.getClass())
+		if (getClass() != obj.getClass()){
 			return false;
+		}
+			
 		Evento other = (Evento) obj;
 		
-		if (!titulo.equals(other.titulo))
+		if (!titulo.equals(other.titulo)){
 			return false;
+		}
+			
 		return true;
 	}
 	
