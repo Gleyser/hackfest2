@@ -99,8 +99,7 @@ public class Application extends Controller {
 	}
 	
 	private static void auxiliar(String tema, String descricao, int dia, List<Tema> temas, List<Evento> eventos) throws EventoInvalidoException{
-		Calendar calendar;
-		calendar = Calendar.getInstance();
+		Calendar calendar = Calendar.getInstance();
 		calendar.add(Calendar.DAY_OF_WEEK, dia);
 		Evento evento = new Evento(tema, descricao, calendar.getTime(), temas);
 		eventos.add(evento);

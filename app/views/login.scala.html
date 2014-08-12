@@ -1,10 +1,8 @@
-@(title: String)(content: Html)
-
 <!DOCTYPE html>
 
 <html>
     <head>
-        <title>@title</title>
+        <title>Login</title>
         <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/main.css")">
         <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/bootstrap-theme.min.css")">
         <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/bootstrap.min.css")">
@@ -23,16 +21,27 @@
     <body>
     	
     	<center><img class="centralizar" src="@routes.Assets.at("images/logo.png")" /> </center>
-		<h2><center>
-		Bem-vindo ao Sistema de Hackfest do Curso de de Ciência da Computação da Universidade Federal de Campina Grande
-		</h2></center>   
-		<h1 class="text-center">Para efetuar loguin clique em:</h1>
-		<br>
-		<center>
-		<h1>
-	    <a class="btn btn-info" style="float:center;" href="/entrar" size=180> Entrar no sistema</a>
-		</center></h1>
-		
+		<h2 style: center><center>
+		Sistema de Hackfest - Pagina de Login
+		</h2>  
+		 <center>	
+		<h3>Caso ainda n�o tenha registro clique em: <a class="btn btn-info" style="float:center;" href="/registrar"> REGISTRAR</a>
+		 </h3>
+		 </center>
+		  <div class="container form-horizontal panel panel-primary text-info" >
+	   <h3 style: center>Insira seu email:</h3>
+       <p style=color:black>
+	       <input type="email" name="email" placeholder="Email" size="70" maxlength="70">
+       </p>
+       <h3 style: center>Insira sua senha:</h3>
+       <p style=color:black>
+	       <input type="password" name="pass" placeholder="Senha" size="30" maxlength="25" >
+       </p>
+       <br>
+       <button class="btn btn-primary" type="submit" value="Entrar">ENTRAR</button>
+	   
+       </div>
        
+       </center> 
     </body>
 </html>

@@ -12,3 +12,8 @@ GET     /assets/*file               controllers.Assets.at(path="/public", file)
 GET     /eventos/tema/:id            controllers.EventoController.eventosPorTema(id : Int)
 POST    /eventos					 controllers.EventoController.novo()
 POST    /eventos/:id/participar		 controllers.EventoController.participar(id: Long)
+# POST  /entrar                      controllers.Login.authenticate()
+GET     /entrar				         controllers.Login.iniciar()	
+
+
+
