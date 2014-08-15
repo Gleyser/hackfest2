@@ -14,7 +14,8 @@ POST    /eventos					  controllers.EventoController.novo()
 POST    /eventos/:id/participar		  controllers.EventoController.participar(id: Long)
  
 # Home page
-#GET     /                            controllers.Application.index1()
+#GET     /logout                            controllers.Application.index1()
+GET     /logout                       controllers.Login.logout()
 GET     /         					  controllers.Login.logout()
 
 # Login
