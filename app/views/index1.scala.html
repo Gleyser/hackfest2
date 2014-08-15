@@ -1,0 +1,14 @@
+@(message: String)
+
+@main("Home Page") {
+
+    <div class="col-sm-12">
+    	<legend>
+    	<a href="/logout" class="btn btn-danger pull-right"> LogOut</a>
+        <h3 class="text-center"> Bem Vindo(a)! @session.get("user") </h3>
+        </legend>
+        
+    </div>
+
+	
+}

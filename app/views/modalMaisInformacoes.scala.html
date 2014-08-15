@@ -1,0 +1,33 @@
+<!-- Modal -->
+<div style="color: black" class="modal fade" id="modalMaisInformacoes"
+	tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+	aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"
+					aria-hidden="true">&times;</button>
+				<h4 class="modal-title modal-titulo-evento" style="width:400px;max-width:400px;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;"></h4>
+			</div>
+			<div class="modal-body">
+				<div class="form-group">
+					<label for="exampleInputEmail1">Descrição</label>
+					<textarea style="width:100%;resize: none;" class="form-control modal-descricao-evento" name="descricao" rows="9" disabled></textarea>
+				</div>
+				<div class="row">
+					<div class="col-md-6 form-group">
+						<label for="exampleInputEmail1">Data do evento</label>
+						<input class="form-control modal-data-evento" disabled>
+					</div>
+					<div class="col-md-6 form-group">
+						<label for="exampleInputEmail1">Total de participantes</label>
+						<input class="form-control modal-total-evento" disabled>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+			</div>
+		</div>
+	</div>
+</div>

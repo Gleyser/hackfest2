@@ -1,0 +1,27 @@
+@(form: Form[Usuario])
+
+@main("Login Page") {
+
+   <div class="col-sm-4 col-sm-offset-4">
+   @if(flash.contains("fail")) {
+   		<p class="bg-danger" style="">
+        	@flash.get("fail")
+		</p>
+   }
+   
+   @helper.form(routes.Login.authenticate) {
+	   <h1 class="text-center">Log In</h1>
+       <p>
+	       <input type="email" name="email" placeholder="Email" value='@form("email").value'
+                  class="form-control">
+       </p>
+       <p>
+	       <input type="password" name="pass" placeholder="Password" class="form-control">
+       </p>
+       <div>
+	       <button class="btn btn-primary" type="submit">Login</button>
+	       <a class="btn btn-info" style="float:right;" href="/registrar"> Registrar</a>
+       </div>
+	}
+    </div>
+}

@@ -1,0 +1,32 @@
+@(form: Form[Usuario])
+
+@main("Register Page") {
+
+   <div class="col-sm-4 col-sm-offset-4">
+   @if(flash.contains("fail")) {
+   		<p class="bg-danger" style="">
+        	@flash.get("fail")
+		</p>
+   }
+
+   @helper.form(routes.Registro.registrar) {
+	   <h1 class="text-center">Registrar</h1>
+	
+	   <p>
+	       <input type="text" name="nome" placeholder="Nome" value='@form("nome").value'
+                class="form-control">
+	   </p>
+	   <p>
+	       <input type="email" name="email" placeholder="Email" value='@form("email").value'
+                   class="form-control">
+	   </p>
+	   <p>
+	       <input type="password" name="pass" placeholder="Password" class="form-control">
+	   </p>
+	   <div>
+	       <button class="btn btn-primary"  type="submit">Registrar</button>
+	       <a class="btn btn-info" style="float:right;" href="/login"> Login</a>
+	   </div>
+	}
+    </div>
+}
