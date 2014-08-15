@@ -110,8 +110,11 @@ public class Evento {
 	public void setTemas(List<Tema> temas) throws EventoInvalidoException {
 		if (temas == null)
 			throw new EventoInvalidoException("Parametro nulo");
-		if (temas.size() == 0)
-			throw new EventoInvalidoException("Nenhum tema");
-		this.temas = temas;
-	}
-}
+		if (data == null){
+			throw new EventoInvalidoException("Parametro nulo");
+		}
+			
+		if (data.compareTo(new Date()) < 0){
+			throw new EventoInvalidoException("Data inválida");
+		}
+			

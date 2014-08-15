@@ -1,0 +1,58 @@
+@(title: String)(content: Html)
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>@title</title>
+        <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/main.css")">
+        <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/bootstrap-theme.min.css")">
+        <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/bootstrap.min.css")">
+        <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/font-awesome.min.css")">
+        <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/bootstrap-notify.css")">
+        <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/swiper.css")">
+        <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")">
+        <script src="@routes.Assets.at("javascripts/jquery-2.1.1.min.js")" type="text/javascript"></script>
+        <script src="@routes.Assets.at("javascripts/swiper.js")" type="text/javascript"></script>
+        <script src="@routes.Assets.at("javascripts/bootstrap.min.js")" type="text/javascript"></script>
+        <script src="@routes.Assets.at("javascripts/jquery.validate.min.js")" type="text/javascript"></script>
+        <script src="@routes.Assets.at("javascripts/jquery.validate.tooltip.js")" type="text/javascript"></script>
+        <script src="@routes.Assets.at("javascripts/bootstrap-notify.js")" type="text/javascript"></script>
+        <script src="@routes.Assets.at("javascripts/index.js")" type="text/javascript"></script>
+    </head>
+    <body>
+<<<<<<< HEAD
+    
+    <center>
+    	<div class="container">
+			<div class="col-md-12" style="height:80px;margin-top:10px;margin-bottom:10px;border-radius:4px;opacity:.7">
+				<div class="row">
+					<a href="#" style="color:white !important" onclick="mySwiper.swipeTo(0);">
+						<i class="fa fa-laptop col-sm-1" style="font-size:80px"></i>
+						<h1 class="col-sm-11" style="margin-top:12px;font-size:50px">&nbsp;&nbsp;&nbsp;<b>Sistema de Hackfest</b></h1>
+					</a>
+				</div>
+			</div>
+		</div>
+		</center>
+        @content
+        @modalParticipar()
+        @modalMaisInformacoes()
+        <div class='notifications top-right'></div>
+=======
+    	
+    	<center><img class="centralizar" src="@routes.Assets.at("images/logo.png")" /> </center>
+		<h2><center>
+		Bem-vindo ao Sistema de Hackfest do Curso de de Ciência da Computação da Universidade Federal de Campina Grande
+		</h2></center>   
+		<h1 class="text-center">Para efetuar loguin clique em:</h1>
+		<br>
+		<center>
+		<h1>
+	    <a class="btn btn-info" style="float:center;" href="/entrar" size=180> Entrar no sistema</a>
+		</center></h1>
+		
+       
+>>>>>>> fb9373061913990b49c898fe4102742455760a7d
+    </body>
+</html>

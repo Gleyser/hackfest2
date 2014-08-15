@@ -1,0 +1,80 @@
+<<<<<<< HEAD
+@main("Sistema de HackFest") {
+
+<a class="arrow-left" href="#" style="z-index:11"></a> <a class="arrow-right" href="#" style="z-index:11"></a>
+<div class="swiper-container">
+	<div class="swiper-wrapper">
+		<div class="swiper-slide" style="background-color: rgb(13, 42, 70);">
+			@apresentacao()
+		</div>
+		<div class="swiper-slide" style="background-color: rgb(13, 42, 70);">
+=======
+@main("Hackfest") {
+
+<!-- <!-- <a class="arrow-left" href="#" style="z-index:11"></a> <a class="arrow-right" href="#" style="z-index:11"></a> --> 
+<!-- <div class="swiper-container">
+	<div class="swiper-wrapper"> -->
+	<!-- <div class="swiper-slide" style="background-color: rgb(13, 42, 70);"> -->
+		
+              
+    
+    
+    
+    
+    
+		<!-- <div class="swiper-slide" style="background-color: rgb(13, 42, 70);">
+			@apresentacao()
+		</div>
+		
+		
+    	</div>
+		
+		
+		
+		 <div class="swiper-slide" style="background-color: rgb(13, 42, 70);">
+>>>>>>> fb9373061913990b49c898fe4102742455760a7d
+			@visualizacao()
+		</div>
+		<div class="swiper-slide" style="background-color: rgb(13, 42, 70);">
+			@criacao()
+		</div>
+	</div>
+	<div class="pagination"></div>
+<<<<<<< HEAD
+</div>
+
+<script>
+=======
+</div>  -->
+
+<!-- <script>
+>>>>>>> fb9373061913990b49c898fe4102742455760a7d
+	var mySwiper;
+
+	$(document).on('ready', function() {
+
+		mySwiper = new Swiper('.swiper-container', {
+			pagination : '.pagination',
+			loop : false,
+			grabCursor : true,
+			paginationClickable : true
+		})
+		
+		$('.arrow-left').on('click', function(e) {
+			e.preventDefault()
+			mySwiper.swipePrev()
+		})
+		
+		$('.arrow-right').on('click', function(e) {
+			e.preventDefault()
+			mySwiper.swipeNext()
+		})
+		
+		$('.content-slide').css('height',$('body').height()+'px')
+	});
+<<<<<<< HEAD
+</script>
+=======
+</script> -->
+>>>>>>> fb9373061913990b49c898fe4102742455760a7d
+}

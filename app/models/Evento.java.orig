@@ -1,0 +1,242 @@
+package models;
+<<<<<<< HEAD
+
+=======
+// Testando
+>>>>>>> fb9373061913990b49c898fe4102742455760a7d
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+import javax.persistence.Column;
+import javax.persistence.ElementCollection;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.validation.constraints.NotNull;
+
+import models.exceptions.EventoInvalidoException;
+import play.data.validation.Constraints.MaxLength;
+import play.data.validation.Constraints.Required;
+
+@Entity
+public class Evento {
+<<<<<<< HEAD
+=======
+	
+	private final int tamanhoMaximoDaDescricao = 450;
+	private final int tamanhoMaximoDoTitulo = 40;
+>>>>>>> fb9373061913990b49c898fe4102742455760a7d
+
+	@Id
+	@GeneratedValue
+	private long id;
+
+	@Required
+<<<<<<< HEAD
+	@MaxLength(value = 40)
+	private String titulo;
+
+	@Required
+	@MaxLength(value = 450)
+	@Column(name = "CONTENT", length = 450)
+=======
+	@MaxLength(value = tamanhoMaximoDoTitulo)
+	private String titulo;
+
+	@Required
+	@MaxLength(value = tamanhoMaximoDaDescricao)
+	@Column(name = "CONTENT", length = tamanhoMaximoDaDescricao)
+>>>>>>> fb9373061913990b49c898fe4102742455760a7d
+	private String descricao;
+
+	@Temporal(value = TemporalType.DATE)
+	@Required
+	private Date data;
+
+	@OneToMany(mappedBy = "evento")
+	private List<Participante> participantes = new ArrayList<Participante>();
+
+	@ElementCollection
+	@Enumerated(value = EnumType.ORDINAL)
+	@NotNull
+	private List<Tema> temas = new ArrayList<Tema>();
+<<<<<<< HEAD
+
+=======
+	
+	
+>>>>>>> fb9373061913990b49c898fe4102742455760a7d
+	public Evento() {
+	}
+
+	public Evento(String titulo, String descricao, Date data, List<Tema> temas)
+			throws EventoInvalidoException {
+<<<<<<< HEAD
+		setTitulo(titulo);
+		setDescricao(descricao);
+		setData(data);
+		setTemas(temas);
+=======
+		this.titulo = titulo;
+		this.descricao = descricao;
+		this.data = data;
+		this.temas = temas;		
+>>>>>>> fb9373061913990b49c898fe4102742455760a7d
+	}
+
+	public String getTitulo() {
+		return titulo;
+	}
+
+	public String getDescricao() {
+		return descricao;
+	}
+
+	public Date getData() {
+		return data;
+	}
+
+	public long getId() {
+		return id;
+	}
+
+	public Integer getTotalDeParticipantes() {
+		return participantes.size();
+	}
+
+	public List<Tema> getTemas() {
+		return temas;
+	}
+
+	public void setTitulo(String titulo) throws EventoInvalidoException {
+<<<<<<< HEAD
+		if (titulo == null)
+			throw new EventoInvalidoException("Parametro nulo");
+		if (titulo.length() > 40)
+			throw new EventoInvalidoException("Título longo");
+=======
+		if (titulo == null){
+			throw new EventoInvalidoException("Parametro nulo");
+		}
+			
+		if (titulo.length() > tamanhoMaximoDoTitulo){
+			throw new EventoInvalidoException("Título longo");
+		}
+			
+>>>>>>> fb9373061913990b49c898fe4102742455760a7d
+		this.titulo = titulo;
+	}
+
+	public void setDescricao(String descricao) throws EventoInvalidoException {
+<<<<<<< HEAD
+		if (descricao == null)
+			throw new EventoInvalidoException("Parametro nulo");
+		if (descricao.length() > 450)
+			throw new EventoInvalidoException("Descrição longa");
+=======
+		if (descricao == null){
+			throw new EventoInvalidoException("Parametro nulo");
+		}
+			
+		if (descricao.length() > tamanhoMaximoDaDescricao){
+			throw new EventoInvalidoException("Descrição longa");
+		}
+			
+>>>>>>> fb9373061913990b49c898fe4102742455760a7d
+		this.descricao = descricao;
+	}
+
+	public void setData(Date data) throws EventoInvalidoException {
+<<<<<<< HEAD
+		if (data == null)
+			throw new EventoInvalidoException("Parametro nulo");
+		if (data.compareTo(new Date()) < 0)
+			throw new EventoInvalidoException("Data inválida");
+=======
+		if (data == null){
+			throw new EventoInvalidoException("Parametro nulo");
+		}
+			
+		if (data.compareTo(new Date()) < 0){
+			throw new EventoInvalidoException("Data inválida");
+		}
+			
+>>>>>>> fb9373061913990b49c898fe4102742455760a7d
+		this.data = data;
+	}
+
+	public void setTemas(List<Tema> temas) throws EventoInvalidoException {
+<<<<<<< HEAD
+		if (temas == null)
+			throw new EventoInvalidoException("Parametro nulo");
+		if (temas.size() == 0)
+			throw new EventoInvalidoException("Nenhum tema");
+		this.temas = temas;
+	}
+=======
+		if (temas == null){
+			throw new EventoInvalidoException("Parametro nulo");
+		}
+			
+		if (temas.size() == 0){
+			throw new EventoInvalidoException("Nenhum tema");
+		}
+			
+		this.temas = temas;
+	}
+
+	public List<Participante> getParticipantes() {
+		return participantes;
+	}
+
+	public void setParticipantes(List<Participante> participantes) {
+		this.participantes = participantes;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((data == null) ? 0 : data.hashCode());
+		result = prime * result
+				+ ((descricao == null) ? 0 : descricao.hashCode());
+		result = prime * result
+				+ ((participantes == null) ? 0 : participantes.hashCode());
+		result = prime * result + ((temas == null) ? 0 : temas.hashCode());
+		result = prime * result + ((titulo == null) ? 0 : titulo.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj){
+			return true;
+		}
+			
+		
+		if (getClass() != obj.getClass()){
+			return false;
+		}
+			
+		Evento other = (Evento) obj;
+		
+		if (!titulo.equals(other.titulo)){
+			return false;
+		}
+			
+		return true;
+	}
+	
+	
+>>>>>>> fb9373061913990b49c898fe4102742455760a7d
+}

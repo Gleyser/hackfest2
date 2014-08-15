@@ -1,0 +1,43 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+<<<<<<< HEAD
+GET     /sistema                      controllers.Application.index()
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file                controllers.Assets.at(path="/public", file)
+
+# Evento
+GET     /eventos/tema/:id             controllers.EventoController.eventosPorTema(id : Int)
+POST    /eventos					  controllers.EventoController.novo()
+POST    /eventos/:id/participar		  controllers.EventoController.participar(id: Long)
+ 
+# Home page
+#GET     /                            controllers.Application.index1()
+GET     /         					  controllers.Login.logout()
+
+# Login
+GET     /login                        controllers.Login.show()
+POST    /login                        controllers.Login.authenticate()
+
+# Registro
+GET     /registrar                    controllers.Registro.show()
+POST    /registrar                    controllers.Registro.registrar()
+=======
+GET     /                           controllers.Application.index()
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.at(path="/public", file)
+
+# Evento
+GET     /eventos/tema/:id            controllers.EventoController.eventosPorTema(id : Int)
+POST    /eventos					 controllers.EventoController.novo()
+POST    /eventos/:id/participar		 controllers.EventoController.participar(id: Long)
+# POST  /entrar                      controllers.Login.authenticate()
+GET     /entrar				         controllers.Login.iniciar()	
+
+
+
+>>>>>>> fb9373061913990b49c898fe4102742455760a7d
