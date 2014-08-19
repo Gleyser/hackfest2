@@ -14,6 +14,8 @@ import play.data.validation.Constraints.MaxLength;
 
 @Entity
 public class Participante {
+	
+	private final int tamMaximo = 70;
 
 	private final String EMAIL_PATTERN = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
 			+ "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
@@ -53,7 +55,7 @@ public class Participante {
 			throw new PessoaInvalidaException("Parametro nulo");
 		}
 			
-		if (nome.length() > 70){
+		if (nome.length() > tamMaximo){
 			throw new PessoaInvalidaException("Nome longo");
 		}
 			
@@ -73,7 +75,7 @@ public class Participante {
 			throw new PessoaInvalidaException("Email inválido");
 		}
 			
-		if (email.length() > 70){
+		if (email.length() > tamMaximo){
 			throw new PessoaInvalidaException("Email longo");
 		}
 			

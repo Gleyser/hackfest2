@@ -22,18 +22,21 @@ import play.data.validation.Constraints.Required;
 
 @Entity
 public class Evento {
+	private final int tamanhoMaximoTitulo = 40;
+	private final int tamanhoMaximoDescricao = 450;
+	private final int zero = 0;
 
 	@Id
 	@GeneratedValue
 	private long id;
 
 	@Required
-	@MaxLength(value = 40)
+	@MaxLength(tamanhoMaximoTitulo = 40)
 	private String titulo;
 
 	@Required
 	@MaxLength(value = 450)
-	@Column(name = "CONTENT", length = 450)
+	@Column(name = "CONTENT", tamanhoMaximoDescricao = 450)
 	private String descricao;
 
 	@Temporal(value = TemporalType.DATE)
@@ -88,7 +91,7 @@ public class Evento {
 			throw new EventoInvalidoException("Parametro nulo");
 		}
 			
-		if (titulo.length() > 40){
+		if (titulo.length() > tamanhoMaximoTitulo){
 			throw new EventoInvalidoException("Título longo");
 		}
 			
@@ -100,7 +103,7 @@ public class Evento {
 			throw new EventoInvalidoException("Parametro nulo");
 		}
 			
-		if (descricao.length() > 450){
+		if (descricao.length() > tamanhoMaximoDescricao){
 			throw new EventoInvalidoException("Descrição longa");
 		}
 			
@@ -112,7 +115,7 @@ public class Evento {
 			throw new EventoInvalidoException("Parametro nulo");
 		}
 			
-		if (data.compareTo(new Date()) < 0){
+		if (data.compareTo(new Date()) < zero){
 			throw new EventoInvalidoException("Data inválida");
 		}
 			
@@ -128,7 +131,7 @@ public class Evento {
 			throw new EventoInvalidoException("Parametro nulo");
 			}		
 			
-		if (data.compareTo(new Date()) < 0){
+		if (data.compareTo(new Date()) < zero){
 			throw new EventoInvalidoException("Data inválida");
 			}
 			
