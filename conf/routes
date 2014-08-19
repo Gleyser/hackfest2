@@ -10,11 +10,11 @@ GET     /assets/*file                controllers.Assets.at(path="/public", file)
 
 # Evento
 GET     /eventos/tema/:id             controllers.EventoController.eventosPorTema(id : Int)
-#POST    /eventos					  controllers.EventoController.novo()
+POST    /eventos					  controllers.EventoController.novo()
 POST    /eventos/:id/participar		  controllers.EventoController.participar(id: Long)
  
 # Home page
-#GET     /logout                      controllers.Application.index1()
+#GET     /logout                            controllers.Application.index1()
 GET     /logout                       controllers.Login.logout()
 GET     /         					  controllers.Login.logout()
 
@@ -25,11 +25,3 @@ POST    /login                        controllers.Login.authenticate()
 # Registro
 GET     /registrar                    controllers.Registro.show()
 POST    /registrar                    controllers.Registro.registrar()
-
-# Adicionar novos Eventos
-GET     /novo                    	  controllers.EventoController.exibirPaginaParaAddNovoEvento()
-POST    /novo                         controllers.EventoController.novo()
-
-# Exibir Eventos
-GET     /eventos                      controllers.EventoController.exibirPaginaComEventos()
-#POST    /novo                         controllers.EventoController.novo()

@@ -8,7 +8,6 @@ import java.util.List;
 
 import models.Evento;
 import models.EventoComparator;
-import models.Local;
 import models.Participante;
 import models.Tema;
 import models.exceptions.EventoInvalidoException;
@@ -28,7 +27,7 @@ public class EventoController extends Controller {
 	@Transactional
 	public static Result eventosPorTema(int id) throws PessoaInvalidaException, EventoInvalidoException{
 	
-		List<Evento> todosEventos = Application.getDao().findAllByClassName("evento");
+		List<Evento> todosEventos = Application.getDao().findAllByClassName("Evento");
 		
 		List<Evento> eventosRequeridos = new ArrayList<Evento>();
 		
@@ -45,7 +44,7 @@ public class EventoController extends Controller {
 		
 		try {
 			json = mapper.writeValueAsString(eventosRequeridos);
-		} catch (Exception e) {
+		} catch (Exception _) {
 			return badRequest();
 		}
 		
@@ -53,33 +52,8 @@ public class EventoController extends Controller {
 	}
 	
 	@Transactional
-	public static List<Evento> eventos() throws PessoaInvalidaException, EventoInvalidoException{
-	
-		List<Evento> todosEventos = Application.getDao().findAllByClassName("evento");
-		
-		//List<Evento> eventosRequeridos = new ArrayList<Evento>();
-		
-
-		Collections.sort(todosEventos, new EventoComparator());
-		
-		
-		
-		return todosEventos;
-	}
-	
-	public static Result exibirPaginaParaAddNovoEvento(){
-		return ok(views.html.criacao.render());
-	}
-	
-	public static Result exibirPaginaComEventos(){
-		return ok(views.html.visualizacao.render());
-	}
-	
-	
-	@Transactional
 	public static Result novo() throws PessoaInvalidaException, EventoInvalidoException{
 		Form<Evento> eventoFormRequest = EVENTO_FORM.bindFromRequest();
-		System.out.println(eventoFormRequest.toString());
 
 		if (EVENTO_FORM.hasErrors()) {
 			return badRequest();
@@ -109,10 +83,4 @@ public class EventoController extends Controller {
 			return redirect(controllers.routes.Application.index());
 		}
 	}
-	
-	/*@Transactional
-	public static List<Local> getLocais() {
-		List<Local> locais = Application.getDao().findAllByClassName("local");
-		return locais;
-	}*/
 }

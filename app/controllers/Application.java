@@ -6,13 +6,11 @@ import java.util.List;
 import java.util.Random;
 
 import models.Evento;
-import models.Local;
 import models.Participante;
 import models.Tema;
 import models.dao.GenericDAO;
 import models.dao.GenericDAOImpl;
 import models.exceptions.EventoInvalidoException;
-import models.exceptions.LocalInvalidoException;
 import models.exceptions.PessoaInvalidaException;
 import play.db.jpa.Transactional;
 import play.mvc.Controller;
@@ -33,7 +31,7 @@ public class Application extends Controller {
 	    }
 	 
 	@Transactional
-    public static Result index() throws LocalInvalidoException{
+    public static Result index(){
 		if (!criouEventosFake){
 			List<Evento> eventos = criarEventosFakes();
 			criarParticipacoesFake(eventos);
@@ -47,8 +45,7 @@ public class Application extends Controller {
 		return dao;
 	}
 
-	private static List<Evento> criarEventosFakes() throws LocalInvalidoException {
-		System.out.println("criando eensadasdsad");
+	private static List<Evento> criarEventosFakes() {
 		try {
 			List<Evento> eventos = new ArrayList<Evento>();
 			Evento evento;
@@ -62,12 +59,9 @@ public class Application extends Controller {
 			calendar = Calendar.getInstance();
 			calendar.add(Calendar.DAY_OF_WEEK, 7);
 			
-			Local local = new Local("DSC", 20);
-			evento = new Evento("Python na mente e coração", "Neste evento iremos debater e propor soluções para novas releases.", calendar.getTime(), temas,  "DSC");
-			local.addEvento(evento);
+			evento = new Evento("Python na mente e coração", "Neste evento iremos debater e propor soluções para novas releases.", calendar.getTime(), temas);
 			eventos.add(evento);
 			criarEvento(evento);
-			criarLocal(local);
 			
 			temas = new ArrayList<Tema>();
 			temas.add(Tema.ARDUINO);
@@ -76,11 +70,9 @@ public class Application extends Controller {
 			calendar = Calendar.getInstance();
 			calendar.add(Calendar.DAY_OF_WEEK, 3);
 
-			evento = new Evento("Luta de robôs", "Traga seu robô feito em arduino e traga para competir com outros.", calendar.getTime(), temas, "DSC");
-			local.addEvento(evento);
+			evento = new Evento("Luta de robôs", "Traga seu robô feito em arduino e traga para competir com outros.", calendar.getTime(), temas);
 			eventos.add(evento);
 			criarEvento(evento);
-			criarLocal(local);
 	
 			temas = new ArrayList<Tema>();
 			temas.add(Tema.DESAFIOS);
@@ -89,11 +81,9 @@ public class Application extends Controller {
 			calendar = Calendar.getInstance();
 			calendar.add(Calendar.MONTH, 1);
 
-			evento = new Evento("IV Olímpiadas de programação da UFCG", "Traga sua equipe e venha competir nessa maratona de programação.", calendar.getTime(), temas,"DSC");
-			local.addEvento(evento);
+			evento = new Evento("IV Olímpiadas de programação da UFCG", "Traga sua equipe e venha competir nessa maratona de programação.", calendar.getTime(), temas);
 			eventos.add(evento);
 			criarEvento(evento);
-			criarLocal(local);
 	
 			temas = new ArrayList<Tema>();
 			temas.add(Tema.DESAFIOS);
@@ -102,11 +92,9 @@ public class Application extends Controller {
 			calendar = Calendar.getInstance();
 			calendar.add(Calendar.DAY_OF_WEEK, 12);
 
-			evento = new Evento("II Encontro para programadores de Python", "O encontro contará com a participação de um de seus fundadores, inúmeras palestras e maratonas. Não percam!!", calendar.getTime(), temas, "DSC");
-			local.addEvento(evento);
+			evento = new Evento("II Encontro para programadores de Python", "O encontro contará com a participação de um de seus fundadores, inúmeras palestras e maratonas. Não percam!!", calendar.getTime(), temas);
 			eventos.add(evento);
 			criarEvento(evento);
-			criarLocal(local);
 	
 			temas = new ArrayList<Tema>();
 			temas.add(Tema.PROGRAMACAO);
@@ -116,11 +104,9 @@ public class Application extends Controller {
 			calendar.add(Calendar.MONTH, 2);
 			calendar.add(Calendar.DAY_OF_WEEK, 3);
 
-			evento = new Evento("III Semana da Computação Verde", "Exiba sua proposta para uma computação mais verde e concorra a diversos prêmios", calendar.getTime(), temas, "DSC");
-			local.addEvento(evento);
+			evento = new Evento("III Semana da Computação Verde", "Exiba sua proposta para uma computação mais verde e concorra a diversos prêmios", calendar.getTime(), temas);
 			eventos.add(evento);
 			criarEvento(evento);
-			criarLocal(local);
 	
 			temas = new ArrayList<Tema>();
 			temas.add(Tema.PROGRAMACAO);
@@ -129,11 +115,9 @@ public class Application extends Controller {
 			calendar = Calendar.getInstance();
 			calendar.add(Calendar.DAY_OF_WEEK, 17);
 
-			evento = new Evento("Web em foco", "Este evento contará com a participação de um dos fundadores da Web, e juntos iremos compartilhar diversas dicas e boas práticas nessa vasta área.", calendar.getTime(), temas, "DSC");
-			local.addEvento(evento);
+			evento = new Evento("Web em foco", "Este evento contará com a participação de um dos fundadores da Web, e juntos iremos compartilhar diversas dicas e boas práticas nessa vasta área.", calendar.getTime(), temas);
 			eventos.add(evento);
 			criarEvento(evento);
-			criarLocal(local);
 	
 			temas = new ArrayList<Tema>();
 			temas.add(Tema.ELETRONICA);
@@ -142,11 +126,9 @@ public class Application extends Controller {
 			calendar = Calendar.getInstance();
 			calendar.add(Calendar.DAY_OF_WEEK, 5);
 
-			evento = new Evento("Minicurso Arduino", "Evento destinado a alunos de LOAC, caso sobre vagas iremos disponibilizar em breve", calendar.getTime(), temas, "DSC");
-			local.addEvento(evento);
+			evento = new Evento("Minicurso Arduino", "Evento destinado a alunos de LOAC, caso sobre vagas iremos disponibilizar em breve", calendar.getTime(), temas);
 			eventos.add(evento);
 			criarEvento(evento);
-			criarLocal(local);
 	
 			temas = new ArrayList<Tema>();
 			temas.add(Tema.ELETRONICA);
@@ -155,11 +137,9 @@ public class Application extends Controller {
 			calendar = Calendar.getInstance();
 			calendar.add(Calendar.DAY_OF_WEEK, 21);
 
-			evento = new Evento("Curto circuito", "Evento sobre circuitos eletrônicos, venha dar curto em seus circuitos também!!", calendar.getTime(), temas, "DSC");
-			local.addEvento(evento);
+			evento = new Evento("Curto circuito", "Evento sobre circuitos eletrônicos, venha dar curto em seus circuitos também!!", calendar.getTime(), temas);
 			eventos.add(evento);
 			criarEvento(evento);
-			criarLocal(local);
 	
 			temas = new ArrayList<Tema>();
 			temas.add(Tema.DESAFIOS);
@@ -167,11 +147,9 @@ public class Application extends Controller {
 			calendar = Calendar.getInstance();
 			calendar.add(Calendar.DAY_OF_WEEK, 15);
 
-			evento = new Evento("VI Encontro de Docentes de CC", "Evento para debatermos propostas e soluções para os problemas enfrentados pelos alunos de CC.", calendar.getTime(), temas, "DSC");
-			local.addEvento(evento);
+			evento = new Evento("VI Encontro de Docentes de CC", "Evento para debatermos propostas e soluções para os problemas enfrentados pelos alunos de CC.", calendar.getTime(), temas);
 			eventos.add(evento);
 			criarEvento(evento);
-			criarLocal(local);
 
 			temas = new ArrayList<Tema>();
 			temas.add(Tema.PROGRAMACAO);
@@ -180,15 +158,12 @@ public class Application extends Controller {
 			calendar = Calendar.getInstance();
 			calendar.add(Calendar.DAY_OF_WEEK, 8);
 
-			evento = new Evento("Café com Java", "Curso destinado apenas a alunos cursando a disciplina LP2.", calendar.getTime(), temas, "DSC");
-			local.addEvento(evento);
+			evento = new Evento("Café com Java", "Curso destinado apenas a alunos cursando a disciplina LP2.", calendar.getTime(), temas);
 			eventos.add(evento);
 			criarEvento(evento);
-			criarLocal(local);
-			criouEventosFake = false;
+			
 			return eventos;
 		} catch (EventoInvalidoException e) {
-			System.out.println("cai aki");
 			return null;
 		}
 	}
@@ -217,12 +192,6 @@ public class Application extends Controller {
 			criarParticipacao(new Participante("Érico Albuquerque", "erico_albuquerque@mail.com", eventos.get(rnd.nextInt(3))));
 			criarParticipacao(new Participante("Tairine Reis", "tairine_reis@mail.com", eventos.get(rnd.nextInt(3))));
 		} catch (PessoaInvalidaException e) { }
-	}
-	@Transactional
-	private static void criarLocal(Local local) {
-		dao.persist(local);
-		dao.merge(local);
-		dao.flush();
 	}
 	
 	@Transactional

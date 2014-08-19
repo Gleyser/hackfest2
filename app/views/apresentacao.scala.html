@@ -26,34 +26,20 @@
 <div class="container">
 	<div class="col-sm-7" style="padding: 0px 150px 40px 60px;">
 		<div class="row">
-			<h1 class="col-sm-11"
-				style="font-size: 30px; margin-top: 0px; margin-bottom: 20px">
+			<h1 class="col-sm-11" style="font-size: 30px; margin-top:0px;margin-bottom:20px">
 				<b>Temas</b>
 			</h1>
 		</div>
-		<div id="principal-temas"
-			style="height: 208px !important; max-height: 208px; overflow: auto"
-			class="list-group">
-			@for(tema <- Tema.values()){ <a href="@routes.EventoController.exibirPaginaComEventos()" class="list-group-item"
-				data-id="@tema.getTipo()">@tema</a> }
+		<div id="principal-temas" style="height:208px !important;max-height:208px;overflow:auto" class="list-group">
+		  @for(tema <- Tema.values()){
+		  	<a href="#" class="list-group-item" data-id="@tema.getTipo()">@tema</a>
+		  }
 		</div>
 	</div>
-
 	<div class="col-sm-3 div-btn-big-container">
-
-		<a class="btn btn-danger col-sm-12" style="margin-top: 30px"
-			href="/novo"> <i class="fa fa-calendar"></i>&nbsp;&nbsp;Crie um	evento
-		</a> <br>
-		<br> <a class="btn btn-success col-sm-12"
-			style="margin-top: 30px" href="/eventos"> <i class="fa fa-eye"></i>&nbsp;&nbsp;Veja
-			todos eventos
-		</a>
-
-
+		<button class="btn btn-danger col-sm-12" style="margin-top:9px" data-toggle="modal" data-target="#loginModal" onclick="mySwiper.swipeTo(2);"><i class="fa fa-calendar"></i>&nbsp;&nbsp;Crie um evento</button>
+		<br><button class="btn btn-success col-sm-12" style="margin-top:20px" onclick="mySwiper.swipeTo(1);"><i class="fa fa-eye"></i>&nbsp;&nbsp;Veja todos eventos</button>
 	</div>
-
-
-
 </div>
 
 
