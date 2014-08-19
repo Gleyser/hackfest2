@@ -1,13 +1,13 @@
 package controllers;
 
-import java.util.ArrayList;
-import java.util.Calendar;
+
+
 import java.util.List;
 import java.util.Random;
 
 import models.Evento;
 import models.Participante;
-import models.Tema;
+
 import models.dao.GenericDAO;
 import models.dao.GenericDAOImpl;
 import models.exceptions.EventoInvalidoException;

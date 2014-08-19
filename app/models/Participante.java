@@ -17,7 +17,7 @@ public class Participante {
 	
 	private final int tamMaximo = 70;
 
-	private final String email_patern = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
+	private final String emailPatern = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
 			+ "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
 
 	@Id
@@ -71,7 +71,7 @@ public class Participante {
 			throw new PessoaInvalidaException("Parametro nulo");
 		}
 			
-		if (!email.matches(email_patern)){
+		if (!email.matches(emailPatern)){
 			throw new PessoaInvalidaException("Email inválido");
 		}
 			

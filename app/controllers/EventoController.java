@@ -21,7 +21,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class EventoController extends Controller {
 
-	private final static Form<Evento> EVENTO_FORM = form(Evento.class);
+	private final static Form<Evento> eeentoform = form(Evento.class);
 	private final static Form<Participante> participanteForm = form(Participante.class);
 
 	@Transactional
@@ -53,9 +53,9 @@ public class EventoController extends Controller {
 	
 	@Transactional
 	public static Result novo() throws PessoaInvalidaException, EventoInvalidoException{
-		Form<Evento> eventoFormRequest = EVENTO_FORM.bindFromRequest();
+		Form<Evento> eventoFormRequest = eeentoform.bindFromRequest();
 
-		if (EVENTO_FORM.hasErrors()) {
+		if (eeentoform.hasErrors()) {
 			return badRequest();
 		} else {
 			Evento novoEvento = eventoFormRequest.get();
