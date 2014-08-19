@@ -45,7 +45,7 @@ public class Application extends Controller {
 		return dao;
 	}
 
-	private static List<Evento> criarEventosFakes() {
+	/*private static List<Evento> criarEventosFakes() {
 		try {
 			List<Evento> eventos = new ArrayList<Evento>();
 			Evento evento;
@@ -166,7 +166,7 @@ public class Application extends Controller {
 		} catch (EventoInvalidoException e) {
 			return null;
 		}
-	}
+	}*/
 	
 	private static void criarParticipacoesFake(List<Evento> eventos) {
 		Random rnd = new Random();
