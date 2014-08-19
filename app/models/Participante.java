@@ -49,10 +49,14 @@ public class Participante {
 	}
 
 	public void setNome(String nome) throws PessoaInvalidaException {
-		if (nome == null)
+		if (nome == null){
 			throw new PessoaInvalidaException("Parametro nulo");
-		if (nome.length() > 70)
+		}
+			
+		if (nome.length() > 70){
 			throw new PessoaInvalidaException("Nome longo");
+		}
+			
 		this.nome = nome;
 	}
 
@@ -61,12 +65,18 @@ public class Participante {
 	}
 
 	public void setEmail(String email) throws PessoaInvalidaException {
-		if (email == null)
+		if (email == null){
 			throw new PessoaInvalidaException("Parametro nulo");
-		if (!email.matches(EMAIL_PATTERN))
+		}
+			
+		if (!email.matches(EMAIL_PATTERN)){
 			throw new PessoaInvalidaException("Email inválido");
-		if (email.length() > 70)
+		}
+			
+		if (email.length() > 70){
 			throw new PessoaInvalidaException("Email longo");
+		}
+			
 		this.email = email;
 	}
 
@@ -75,8 +85,10 @@ public class Participante {
 	}
 
 	public void setEvento(Evento evento) throws PessoaInvalidaException {
-		if (evento == null)
+		if (evento == null){
 			throw new PessoaInvalidaException("Parametro nulo");
+		}
+			
 		this.evento = evento;
 	}
 }

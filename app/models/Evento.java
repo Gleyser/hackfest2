@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
@@ -11,6 +12,8 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -21,7 +24,7 @@ import models.exceptions.LocalInvalidoException;
 import play.data.validation.Constraints.MaxLength;
 import play.data.validation.Constraints.Required;
 
-@Entity
+@Entity(name = "evento")
 public class Evento {
 
 	@Id
@@ -41,7 +44,7 @@ public class Evento {
 	@Required
 	private Date data;
 
-	@OneToMany(mappedBy = "evento")
+	@OneToMany
 	private List<Participante> participantes = new ArrayList<Participante>();
 
 	@ElementCollection
@@ -49,20 +52,20 @@ public class Evento {
 	@NotNull
 	private List<Tema> temas = new ArrayList<Tema>();
 	
-	@Required
-	@Column
+	@JoinColumn
+	@ManyToOne(cascade=CascadeType.ALL)
 	private Local local;
 
 	public Evento() {
 	}
 
-	public Evento(String titulo, String descricao, Date data, List<Tema> temas, String nomeDoLocal, int capacidadeMaximaDoLocal )
+	public Evento(String titulo, String descricao, Date data, List<Tema> temas, String local)
 			throws EventoInvalidoException, LocalInvalidoException {
 		setTitulo(titulo);
 		setDescricao(descricao);
 		setData(data);
 		setTemas(temas);
-		setLocal(nomeDoLocal, capacidadeMaximaDoLocal);
+		setLocal(local);
 	}
 
 	public String getTitulo() {
@@ -139,9 +142,8 @@ public class Evento {
 			}
 		
 
-	public void setLocal(String nome, int capacidade) throws LocalInvalidoException{
-		Local local = new Local(nome, capacidade);
-		this.local = local;
+	public void setLocal(String local) throws LocalInvalidoException{		
+		this.local = new Local(local, 25);
 	}
 
 	public Local getLocal() {
