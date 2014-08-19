@@ -31,12 +31,12 @@ public class Evento {
 	private long id;
 
 	@Required
-	@MaxLength(tamanhoMaximoTitulo = 40)
+	@MaxLength(tamanhoMaximoTitulo)
 	private String titulo;
 
 	@Required
-	@MaxLength(value = 450)
-	@Column(name = "CONTENT", tamanhoMaximoDescricao = 450)
+	@MaxLength(tamanhoMaximoDescricao)
+	@Column(name = "CONTENT", tamanhoMaximoDescricao)
 	private String descricao;
 
 	@Temporal(value = TemporalType.DATE)

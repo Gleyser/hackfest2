@@ -25,12 +25,12 @@ public class Participante {
 	private long id;
 
 	@NotNull
-	@MaxLength(value = 70)
+	@MaxLength(tamMaximo)
 	private String nome;
 
 	@Email
 	@NotNull
-	@MaxLength(value = 70)
+	@MaxLength(tamMaximo)
 	private String email;
 
 	@ManyToOne
