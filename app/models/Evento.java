@@ -53,10 +53,10 @@ public class Evento {
 
 	public Evento(String titulo, String descricao, Date data, List<Tema> temas)
 			throws EventoInvalidoException {
-		setTitulo(titulo);
-		setDescricao(descricao);
-		setData(data);
-		setTemas(temas);
+		this.titulo = titulo;
+		this.descricao = descricao;
+		this.data = data;
+		this.temas = temas;
 	}
 
 	public String getTitulo() {
@@ -84,38 +84,54 @@ public class Evento {
 	}
 
 	public void setTitulo(String titulo) throws EventoInvalidoException {
-		if (titulo == null)
+		if (titulo == null){
 			throw new EventoInvalidoException("Parametro nulo");
-		if (titulo.length() > 40)
+		}
+			
+		if (titulo.length() > 40){
 			throw new EventoInvalidoException("Título longo");
+		}
+			
 		this.titulo = titulo;
 	}
 
 	public void setDescricao(String descricao) throws EventoInvalidoException {
-		if (descricao == null)
+		if (descricao == null){
 			throw new EventoInvalidoException("Parametro nulo");
-		if (descricao.length() > 450)
+		}
+			
+		if (descricao.length() > 450){
 			throw new EventoInvalidoException("Descrição longa");
+		}
+			
 		this.descricao = descricao;
 	}
 
 	public void setData(Date data) throws EventoInvalidoException {
-		if (data == null)
+		if (data == null){
 			throw new EventoInvalidoException("Parametro nulo");
-		if (data.compareTo(new Date()) < 0)
+		}
+			
+		if (data.compareTo(new Date()) < 0){
 			throw new EventoInvalidoException("Data inválida");
+		}
+			
 		this.data = data;
 	}
 
 	public void setTemas(List<Tema> temas) throws EventoInvalidoException {
-		if (temas == null)
+		if (temas == null){
 			throw new EventoInvalidoException("Parametro nulo");
-		if (data == null)
-			throw new EventoInvalidoException("Parametro nulo");
-		
+			}
 			
-		if (data.compareTo(new Date()) < 0)
+		if (data == null){
+			throw new EventoInvalidoException("Parametro nulo");
+			}		
+			
+		if (data.compareTo(new Date()) < 0){
 			throw new EventoInvalidoException("Data inválida");
+			}
+			
 		}
-		}
+	}
 			
