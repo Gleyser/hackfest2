@@ -4,7 +4,7 @@ import static play.data.Form.form;
 
 import java.util.List;
 
-import models.Evento;
+
 import models.Usuario;
 import models.dao.GenericDAO;
 import models.dao.GenericDAOImpl;
